@@ -1,0 +1,6 @@
+numpy
+lisaconstants
+matplotlib
+scipy
+lisaorbits
+fastgb
