@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='FOM_app',
@@ -8,7 +8,7 @@ setup(
     author='Come Badet',
     author_email='come.badet@apc.in2p3.fr',
     license='',
-    packages=['FOM_app'],
+    packages=find_packages('FOM_app'),
     install_requires=['numpy',
                       'lisaconstants',
                       'matplotlib',
