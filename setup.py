@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='FOM_app',
+    name='FOMapp',
     version='0.1.0',
     description='Common file of the application FOM',
     url='https://github.com/Salander619/FOM_app.git',
