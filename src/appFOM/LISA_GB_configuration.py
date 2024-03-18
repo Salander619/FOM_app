@@ -5,7 +5,7 @@ from scipy.interpolate import InterpolatedUnivariateSpline as spline
 import matplotlib.pyplot as plt
 
 
-import utils
+from . import utils
 from fastgb.fastgb import FastGB
 #import fastGB as FastGB
 
