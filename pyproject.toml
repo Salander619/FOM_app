@@ -1,3 +1,25 @@
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "appFOM"
+version = "0.1.0"
+authors = [
+  { name="Come Badet", email="come.badet@apc.in2p3.fr" },
+]
+description = "Common file of the application FOM"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = ['numpy', 'lisaconstants', 'matplotlib', 'scipy', 'lisaorbits', 'fastgb']
+
+[project.urls]
+Homepage = "https://github.com/Salander619/appFOM.git"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["appFOM*"]

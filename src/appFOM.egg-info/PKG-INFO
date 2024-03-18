@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: appFOM
+Version: 0.1.0
+Summary: Common file of the application FOM
+Home-page: https://github.com/Salander619/FOM_app.git
+Author: Come Badet
+Author-email: Come Badet <come.badet@apc.in2p3.fr>
+Project-URL: Homepage, https://github.com/Salander619/appFOM.git
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: lisaconstants
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: lisaorbits
+Requires-Dist: fastgb
+
+# appFOM

@@ -1,7 +1,0 @@
-README.md
-setup.py
-appFOM.egg-info/PKG-INFO
-appFOM.egg-info/SOURCES.txt
-appFOM.egg-info/dependency_links.txt
-appFOM.egg-info/requires.txt
-appFOM.egg-info/top_level.txt
