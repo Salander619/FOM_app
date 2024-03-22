@@ -210,7 +210,7 @@ def compute_s_n_redbook(option_, freq_, s_op, x, clight, tdi2_):
     else:
         print(f"PSD option should be in [X, XY, A, E, T] {option_}")
         return None
-    if tdi2:
+    if tdi2_:
         factor_tdi2 = 4 * np.sin(2 * x)**2
         s_n *= factor_tdi2
     
