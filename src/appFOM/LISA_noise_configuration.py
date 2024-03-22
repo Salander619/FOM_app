@@ -104,7 +104,7 @@ class LISA_analytical_noise:
         )
 
         sgx = t * sg_sens
-        if tdi2 is True:
+        if tdi2_ is True:
             factor_tdi2 = 4 * np.sin(2 * x) ** 2
             sgx *= factor_tdi2
         if option_ in ["A", "E"]:
