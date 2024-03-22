@@ -1,16 +1,17 @@
+""" 
+
+"""
 ## Lisa tools
 import lisaconstants
 
-
-
 ##
 import numpy as np
-from scipy.interpolate import InterpolatedUnivariateSpline as spline
 import matplotlib.pyplot as plt
 
 
 
 class LISA_analytical_noise:
+    """  """
     def __init__(self,name_,level_):
         self.noise_init(name_,level_)
 
@@ -33,8 +34,6 @@ class LISA_analytical_noise:
         return self.level
 
 
-
-    
     def instru_noise_psd(self,freq_, option_="X", tdi2_=False, arm_length_=2.5e9):
         """Return noise PSD from acc and oms noise, at given freq. range.
         :param array freq: frequency range
@@ -43,20 +42,27 @@ class LISA_analytical_noise:
         :param float arm_length: arm length in meter
         :return array s_n: noise PSD
         """
-        clight = lisaconstants.SPEED_OF_LIGHT
+        clight = lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
         #print("DEBUG : instru_noise_psd : ",tdi2)
         # LISA noise
         # Acceleration
         sa_a = (
-            (3e-15) ** 2 * (1.0 + (0.4e-3 / freq_) ** 2) * (1.0 + (freq_ / 8e-3) ** 4)
+            (3e-15) 
+            ** 2 
+            * (1.0 + (0.4e-3 / freq_) ** 2) 
+            * (1.0 + (freq_ / 8e-3) ** 4)
         )  # in acceleration
         sa_d = sa_a * (2.0 * np.pi * freq_) ** (-4.0)  # in displacement
         s_pm = sa_d * (2.0 * np.pi * freq_ / clight) ** 2  # in rel freq unit
 
         # Optical Metrology System
         psd_oms_d = (15.0e-12) ** 2  # in displacement
-        s_op = psd_oms_d * (2.0 * np.pi * freq_ / clight) ** 2  # in rel freq unit
-    
+        s_op = (
+            psd_oms_d 
+            * (2.0 * np.pi * freq_ / clight) 
+            ** 2  
+        ) # in rel freq unit
+
         # Light travel time
         lisa_lt = arm_length_ / clight
 
@@ -92,7 +98,7 @@ class LISA_analytical_noise:
         return s_n
 
 
-    
+
     def confusion_noise_psd(self,freq_, duration_=4.5, option_="X", tdi2_=False, arm_length_=2.5e9):
         """Return noise PSD from GB confusion noise, at given freq. range.
         :param array freq: frequency range
@@ -102,7 +108,7 @@ class LISA_analytical_noise:
         :param float arm_length: arm length in meter
         :return array s_n: noise PSD
         """
-        clight = lisaconstants.SPEED_OF_LIGHT
+        clight = lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
         lisaLT = arm_length_ / clight
         x = 2.0 * np.pi * lisaLT * freq_
         t = 4.0 * x**2 * np.sin(x) ** 2
@@ -138,9 +144,9 @@ class LISA_analytical_noise:
         else:
             return sgx
 
-    
 
-    
+
+ 
     def reset(self):
         self.name  = None
         self.level = None
@@ -149,28 +155,37 @@ class LISA_analytical_noise:
 
 
 if __name__ == "__main__":
-    
+
     test0 = LISA_analytical_noise("dummy", 42)
     print(test0)
-    
-    
+
+
     test0.set_noise_level(666)
     print(test0)
-    
+
     test0.reset()
     print(test0)
-    
-    
+
+
     test0.noise_init("red book",12)
     print(test0)
-    
-    
+
+
     freq = np.logspace(-5, 0, 9990)
     duration = 4.5  # years
     tdi2 = True
-    
-    ax.loglog(freq, np.sqrt(freq) * np.sqrt(sh(freq)), label="instrumental noise")
-    ax.loglog(freq, np.sqrt(freq) * np.sqrt(20 / 3) * np.sqrt(sh_wd(freq)), color="k", ls="--",label="+confusion noise")
+
+    ax.loglog(
+        freq, np.sqrt(freq) * np.sqrt(sh(freq)),
+        label="instrumental noise"
+    )
+    ax.loglog(
+        freq,
+        np.sqrt(freq) * np.sqrt(20 / 3) * np.sqrt(sh_wd(freq)),
+        color="k",
+        ls="--",
+        label="+confusion noise"
+    )
 
 
     # graph to publish
@@ -178,13 +193,22 @@ if __name__ == "__main__":
 
 
 
-    ax.loglog(freq, np.sqrt(freq) * np.sqrt(sh(freq)), label="instrumental noise")
-    ax.loglog(freq, np.sqrt(freq) * np.sqrt(20 / 3) * np.sqrt(sh_wd(freq)), color="k", ls="--",label="+confusion noise")
-    
+    ax.loglog(
+        freq,
+        np.sqrt(freq) * np.sqrt(sh(freq)),
+        label="instrumental noise"
+    )
+    ax.loglog(
+        freq,
+        np.sqrt(freq) * np.sqrt(20 / 3) * np.sqrt(sh_wd(freq)),
+        color="k",
+        ls="--",
+        label="+confusion noise"
+    )
+
     ax.set_ylabel("ASD (to check)")
     ax.set_xlabel("Frequnecy (Hz)")
-    
+
     plt.legend()
     plt.grid()
     plt.show()
-
