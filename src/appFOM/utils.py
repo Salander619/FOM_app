@@ -1,4 +1,6 @@
+"""
 
+"""
 ## Lisa tools
 import lisaconstants
 
@@ -16,7 +18,7 @@ def fast_response(freq, arm_length=2.5e9, tdi2=False):
     :param bool tdi2: TDI1.5 or 2nd generation
     :return array R: LISA TDI X response
     """
-    lisaLT = arm_length / lisaconstants.SPEED_OF_LIGHT
+    lisaLT = arm_length / lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
     x = 2.0 * np.pi * lisaLT * freq
     r = np.absolute(9 / 20 / (1 + (3 * x / 4) ** 2) * ((16 * x**2 * np.sin(x) ** 2)))
     if tdi2:
@@ -35,7 +37,7 @@ def psd2sh(freq, SX, arm_length=2.5e9, tdi2=False, sky_averaging=False):
     :param bool sky_averaging: apply sky averaging factor
     :return array Sh: sensitivity
     """
-    lisa_arm_t = arm_length / lisaconstants.SPEED_OF_LIGHT
+    lisa_arm_t = arm_length / lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
     if tdi2:
         fctr = (
             8.0
@@ -54,7 +56,7 @@ def psd2sh(freq, SX, arm_length=2.5e9, tdi2=False, sky_averaging=False):
     return Sh
 
 
-
+# pylint: disable=undefined-variable
 def compute_snr(XYZ_, SXX_, SXY_):
     """SNR from TDI XYZ
 
