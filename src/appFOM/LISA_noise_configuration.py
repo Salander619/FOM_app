@@ -1,9 +1,5 @@
 """ 
-<<<<<<< Updated upstream
-
-=======
     Compute instrumental and confusion noise 
->>>>>>> Stashed changes
 """
 ## Lisa tools
 import lisaconstants
@@ -13,13 +9,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class LISA_analytical_noise:
-<<<<<<< Updated upstream
-    """  """
-=======
     """ 
         Compute noise according to a configuration called "name" and a level
     """
->>>>>>> Stashed changes
     def __init__(self,name_,level_):
         self.noise_init(name_,level_)
 
@@ -55,15 +47,9 @@ class LISA_analytical_noise:
         # LISA noise
         # Acceleration
         sa_a = (
-<<<<<<< Updated upstream
-            (3e-15) 
-            ** 2 
-            * (1.0 + (0.4e-3 / freq_) ** 2) 
-=======
             (3e-15)
             ** 2
             * (1.0 + (0.4e-3 / freq_) ** 2)
->>>>>>> Stashed changes
             * (1.0 + (freq_ / 8e-3) ** 4)
         )  # in acceleration
         sa_d = sa_a * (2.0 * np.pi * freq_) ** (-4.0)  # in displacement
@@ -72,15 +58,9 @@ class LISA_analytical_noise:
         # Optical Metrology System
         psd_oms_d = (15.0e-12) ** 2  # in displacement
         s_op = (
-<<<<<<< Updated upstream
-            psd_oms_d 
-            * (2.0 * np.pi * freq_ / clight) 
-            ** 2  
-=======
             psd_oms_d
             * (2.0 * np.pi * freq_ / clight)
             ** 2
->>>>>>> Stashed changes
         ) # in rel freq unit
 
         # Light travel time
@@ -171,11 +151,6 @@ class LISA_analytical_noise:
 
 
 
-<<<<<<< Updated upstream
- 
-=======
-
->>>>>>> Stashed changes
     def reset(self):
         """
             Reset the name, level and state of initialization
@@ -206,22 +181,6 @@ if __name__ == "__main__":
     freq = np.logspace(-5, 0, 9990)
     duration = 4.5  # years
     tdi2 = True
-<<<<<<< Updated upstream
-
-    ax.loglog(
-        freq, np.sqrt(freq) * np.sqrt(sh(freq)),
-        label="instrumental noise"
-    )
-    ax.loglog(
-        freq,
-        np.sqrt(freq) * np.sqrt(20 / 3) * np.sqrt(sh_wd(freq)),
-        color="k",
-        ls="--",
-        label="+confusion noise"
-    )
-
-=======
->>>>>>> Stashed changes
 
     # graph to publish
     fig, ax = plt.subplots(1, figsize=(12, 8))
@@ -251,22 +210,6 @@ if __name__ == "__main__":
         label="+confusion noise"
     )
 
-<<<<<<< Updated upstream
-    ax.loglog(
-        freq,
-        np.sqrt(freq) * np.sqrt(sh(freq)),
-        label="instrumental noise"
-    )
-    ax.loglog(
-        freq,
-        np.sqrt(freq) * np.sqrt(20 / 3) * np.sqrt(sh_wd(freq)),
-        color="k",
-        ls="--",
-        label="+confusion noise"
-    )
-
-=======
->>>>>>> Stashed changes
     ax.set_ylabel("ASD (to check)")
     ax.set_xlabel("Frequnecy (Hz)")
 
