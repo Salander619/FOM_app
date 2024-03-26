@@ -24,6 +24,12 @@ class LISA_analytical_noise:
 
     def noise_init(self,name_,level_):
         self.name  = name_
+
+        if self.name is "scird":
+            self._compute_acc = self._compute_acc_scird
+        else:
+            self._compute_acc = self._compute_acc_redbook
+
         self.level = level_
         self.initialized = True
 
@@ -33,7 +39,48 @@ class LISA_analytical_noise:
     def get_noise_level(self):
         return self.level
 
-    def instru_noise_psd(self,freq_, option_="X", tdi2_=False, arm_length_=2.5e9):
+    def _compute_acc_redbook(self, freq_):
+        sa_a = (
+            (3e-15)
+            ** 2
+            * (1.0 +(0.4e-3/freq_)**2)
+            * (1.0+(freq_/8e-3)**4)
+            * (1.0+(0.08e-3/freq_)**7)
+        )
+        return sa_a
+
+    def _compute_acc_scird(self, freq_):
+        sa_a = (
+            (3e-15)
+            ** 2
+            * (1.0 + (0.4e-3 / freq_) ** 2)
+            * (1.0 + (freq_ / 8e-3) ** 4)
+        )
+        return sa_a
+
+    def _compute_oms(self):
+        return (15.0e-12) ** 2 # in displacement
+
+    def get_s_op(self, freq_, clight):
+        s_op = (
+            self._compute_oms()
+            * (2.0 * np.pi * freq_ / clight)
+            ** 2
+        ) # in rel freq unit
+        return s_op
+
+    def get_s_pm(self, freq_, clight):
+        sa_d = self._compute_acc(freq_) *\
+              (2.0 * np.pi * freq_) ** (-4.0) # in displacement
+        s_pm = sa_d * (2.0 * np.pi * freq_ / clight) ** 2 # in rel freq unit
+        return s_pm
+
+    def instru_noise_psd(self,
+                         freq_,
+                         option_="X",
+                         tdi2_=False,
+                         arm_length_=2.5e9
+                        ):
         """Return noise PSD from acc and oms noise, at given freq. range.
         :param array freq: frequency range
         :param str option: TDI name can be X, XY, A, E, T
@@ -44,6 +91,13 @@ class LISA_analytical_noise:
         clight = lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
         #print("DEBUG : instru_noise_psd : ",tdi2)
 
+        # LISA noise
+        # Acceleration
+        s_pm = self.get_s_pm(freq_,clight) # in acceleration
+
+        # Optical Metrology System
+        s_op = self.get_s_op(freq_,clight)
+
         # Light travel time
         lisa_lt = arm_length_ / clight
 
@@ -51,25 +105,46 @@ class LISA_analytical_noise:
         omega = 2.0 * np.pi * freq_
         x = omega * lisa_lt
 
-        # Optical Metrology System
-        psd_oms_d = (15.0e-12) ** 2  # in displacement
-        s_op = (
-            psd_oms_d
-            * (2.0 * np.pi * freq_ / clight)
-            ** 2
-        ) # in rel freq unit
-
-        # LISA noise
-        # Acceleration
-        if self.name == "scird":
-            return compute_s_n_scird(option_, freq_, s_op, x, clight, tdi2_)
-        elif self.name == "redbook":
-            return compute_s_n_redbook(option_, freq_, s_op, x, clight, tdi2_)
+        if option_ == "X":
+            s_n = (
+                16.0
+                * np.sin(x)
+                ** 2
+                * (2.0 * (1.0 + np.cos(x) ** 2) * s_pm + s_op)
+            )
+        elif option_ == "XY":
+            s_n = -4.0 * np.sin(2 * x) * np.sin(x) * (s_op + 4.0 * s_pm)
+        elif option_ in ["A", "E"]:
+            s_n = (
+                8.0
+                * np.sin(x) ** 2
+                * (
+                    2.0 * s_pm * (3.0 + 2.0 * np.cos(x) + np.cos(2 * x))
+                    + s_op * (2.0 + np.cos(x))
+                )
+            )
+        elif option_ == "T":
+            s_n = (
+                16.0 * s_op * (1.0 - np.cos(x)) * np.sin(x) ** 2
+                + 128.0 * s_pm * np.sin(x) ** 2 * np.sin(0.5 * x) ** 4
+            )
         else:
-            return compute_s_n_redbook(option_, freq_, s_op, x, clight, tdi2_)
+            print(f"PSD option should be in [X, XY, A, E, T] {option_}")
+            return None
+        if tdi2_:
+            factor_tdi2 = 4 * np.sin(2 * x) ** 2
+            s_n *= factor_tdi2
+
+        return s_n
 
 
-    def confusion_noise_psd(self,freq_, duration_=4.5, option_="X", tdi2_=False, arm_length_=2.5e9):
+    def confusion_noise_psd(self,
+                            freq_,
+                            duration_=4.5,
+                            option_="X",
+                            tdi2_=False,
+                            arm_length_=2.5e9
+                            ):
         """Return noise PSD from GB confusion noise, at given freq. range.
         :param array freq: frequency range
         :param float nyears: number of years of observation
@@ -181,79 +256,3 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid()
     plt.show()
-
-
-def compute_s_n_redbook(option_, freq_, s_op, x, clight, tdi2_):
-    sa_a = (
-        (3e-15)
-        * (1.0 +(0.4e-3/freq_)**2)
-        * (1.0+(freq_/8e-3)**4)
-        * (1.0+(0.08e-3/freq_)**7)
-    )
-    sa_d = sa_a*(2.*np.pi*freq_)**(-4.)
-
-    sa_d = sa_a * (2.0 * np.pi * freq_) ** (-4.0)  # in displacement
-    s_pm = sa_d * (2.0 * np.pi * freq_ / clight) ** 2 # in rel freq unit
-
-    if option_=="X":
-        s_n = 16.0 * np.sin(x)**2 * (2.0 * (1.0 + np.cos(x)**2) * s_pm +\
-                                        s_op)
-    elif option_=="XY":
-        s_n = -4.0 * np.sin(2*x) * np.sin(x) * (s_op + 4.0*s_pm)
-    elif option_ in ["A", "E"]:
-        s_n = 8.0 * np.sin(x)**2 * (2.0 * s_pm * (3.0 + 2.0*np.cos(x) +\
-                                                        np.cos(2*x)) +\
-                                    s_op * (2.0 + np.cos(x)))
-    elif option_=="T":
-        s_n = 16.0 * s_op * (1.0 - np.cos(x)) * np.sin(x)**2 +\
-            128.0 * s_pm * np.sin(x)**2 * np.sin(0.5*x)**4
-    else:
-        print(f"PSD option should be in [X, XY, A, E, T] {option_}")
-        return None
-    if tdi2_:
-        factor_tdi2 = 4 * np.sin(2 * x)**2
-        s_n *= factor_tdi2
-    
-    return s_n
-
-def compute_s_n_scird(option_, freq_, s_op, x, clight, tdi2_):
-    sa_a = (
-        (3e-15)
-        ** 2
-        * (1.0 + (0.4e-3 / freq_) ** 2)
-        * (1.0 + (freq_ / 8e-3) ** 4)
-    )  # in acceleration
-    sa_d = sa_a * (2.0 * np.pi * freq_) ** (-4.0)  # in displacement
-    s_pm = sa_d * (2.0 * np.pi * freq_ / clight) ** 2 # in rel freq unit
-
-    if option_ == "X":
-        s_n = (
-            16.0
-            * np.sin(x)
-            ** 2
-            * (2.0 * (1.0 + np.cos(x) ** 2) * s_pm + s_op)
-        )
-    elif option_ == "XY":
-        s_n = -4.0 * np.sin(2 * x) * np.sin(x) * (s_op + 4.0 * s_pm)
-    elif option_ in ["A", "E"]:
-        s_n = (
-            8.0
-            * np.sin(x) ** 2
-            * (
-                2.0 * s_pm * (3.0 + 2.0 * np.cos(x) + np.cos(2 * x))
-                + s_op * (2.0 + np.cos(x))
-            )
-        )
-    elif option_ == "T":
-        s_n = (
-            16.0 * s_op * (1.0 - np.cos(x)) * np.sin(x) ** 2
-            + 128.0 * s_pm * np.sin(x) ** 2 * np.sin(0.5 * x) ** 4
-        )
-    else:
-        print(f"PSD option should be in [X, XY, A, E, T] {option_}") #pylint: disable=undefined-variable
-        return None
-    if tdi2_:
-        factor_tdi2 = 4 * np.sin(2 * x) ** 2
-        s_n *= factor_tdi2
-
-    return s_n
