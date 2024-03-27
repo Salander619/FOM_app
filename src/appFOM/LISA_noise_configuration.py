@@ -1,5 +1,4 @@
-""" 
-    Compute instrumental and confusion noise 
+""" Compute instrumental and confusion noise 
 """
 ## Lisa tools
 import lisaconstants
@@ -10,7 +9,7 @@ import matplotlib.pyplot as plt
 
 class LISA_analytical_noise:
     """ 
-        Compute noise according to a configuration called "name" and a level
+    Compute noise according to a configuration called "name" and a noise level
     """
     def __init__(self,name_,level_):
         self.noise_init(name_,level_)
@@ -23,9 +22,13 @@ class LISA_analytical_noise:
         return display
 
     def noise_init(self,name_,level_):
+        """ Init noise configuration
+        :param string name_: name of configuration 
+        :param int level_: noise level
+        """
         self.name  = name_
 
-        if self.name is "scird":
+        if self.name == "scird":
             self._compute_acc = self._compute_acc_scird
         else:
             self._compute_acc = self._compute_acc_redbook
@@ -34,9 +37,14 @@ class LISA_analytical_noise:
         self.initialized = True
 
     def set_noise_level(self,level_):
+        """ Set the noise level
+        :param int level_: noise level
+        """
         self.level = level_
 
     def get_noise_level(self):
+        """ Return the noise level
+        """
         return self.level
 
     def _compute_acc_redbook(self, freq_):
@@ -62,6 +70,10 @@ class LISA_analytical_noise:
         return (15.0e-12) ** 2 # in displacement
 
     def get_s_op(self, freq_, clight):
+        """ Compute Optical Metrology Noise
+        :param array freq_: frequency range
+        :param float clight: speed of light
+        """
         s_op = (
             self._compute_oms()
             * (2.0 * np.pi * freq_ / clight)
@@ -70,6 +82,10 @@ class LISA_analytical_noise:
         return s_op
 
     def get_s_pm(self, freq_, clight):
+        """ Compute acceleration noise
+        :param array freq_: frequency range
+        :param float clight: speed of light
+        """
         sa_d = self._compute_acc(freq_) *\
               (2.0 * np.pi * freq_) ** (-4.0) # in displacement
         s_pm = sa_d * (2.0 * np.pi * freq_ / clight) ** 2 # in rel freq unit
@@ -193,7 +209,7 @@ class LISA_analytical_noise:
 
     def reset(self):
         """
-            Reset the name, level and state of initialization
+        Reset the name, level and state of initialization
         """
         self.name  = None
         self.level = None
@@ -216,7 +232,6 @@ if __name__ == "__main__":
 
     test0.noise_init("red book",12)
     print(test0)
-
 
     freq = np.logspace(-5, 0, 9990)
     duration = 4.5  # years

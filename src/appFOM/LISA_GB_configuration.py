@@ -1,5 +1,4 @@
-"""
-
+""" Manage galactic binaries sources
 """
 import numpy as np
 from scipy.interpolate import InterpolatedUnivariateSpline as spline
@@ -14,8 +13,7 @@ import lisaconstants
 from . import utils
 
 class LISA_GB_source:
-    """
-        
+    """ Define a source for a galactic binary
     """
     def __init__(self,name_,params_):
         self.source_init(name_,params_)
@@ -28,30 +26,44 @@ class LISA_GB_source:
         return display
 
     def source_init(self,name_,params_):
+        """ Init name, parameters and position of a source
+        :param string name_: name of the source
+        :param array params_: parameters of the source
+        """
         self.name  = name_
         self.params = params_
         self.set_source_position(params_[3],params_[4])
         self.initialized = True
 
     def set_source_position(self,beta_,lambda_):
+        """ Set the position of the source
+        :param float beta_: 
+        :param float lambda_:
+        """
         self.source_beta   = beta_
         self.source_lambda = lambda_
 
     def get_name(self):
-        if self.initialized == True : 
+        """ Return name of the source
+        """
+        if self.initialized is True : 
             return self.name
         else:
             return None
 
     def get_source_parameters(self):
-        if self.initialized == True:
+        """ Return parameters of the source
+        """
+        if self.initialized is True:
             return self.params.reshape(1,-1)          
         else:
             return None
 
 
     def get_source_position(self):
-        if self.initialized == True:
+        """ Return position of the source
+        """
+        if self.initialized is True:
             position = [self.source_beta, self.source_lambda]
         else:
             position = None
@@ -65,6 +77,8 @@ class LISA_GB_source:
 
 
     def reset(self):
+        """ Reset name, parameters and sources
+        """
         self.name          = None
         self.params        = None
         self.source_beta   = None
@@ -72,7 +86,9 @@ class LISA_GB_source:
         self.initialized = False
 
     def display(self):
-        if self.initialized == True:
+        """ Print name and parametrization of the source
+        """
+        if self.initialized is True:
             print(self.name ," Source parametrization : ")
             print("   |-> params : ",self.params)
             print("   |-> position : ",self.source_beta," ",self.source_lambda)
@@ -102,7 +118,7 @@ if __name__ == "__main__":
 
 
     # verification GB reader
-    input_gb_filename = "data/VGB.npy"
+    input_gb_filename = "src/appFOM/data/VGB.npy"
 
 
     gb_config_file = np.load(input_gb_filename)

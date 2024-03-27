@@ -1,5 +1,4 @@
-"""
-
+""" Contains general methods used by the application
 """
 ## Lisa tools
 import lisaconstants
@@ -20,7 +19,11 @@ def fast_response(freq, arm_length=2.5e9, tdi2=False):
     """
     lisaLT = arm_length / lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
     x = 2.0 * np.pi * lisaLT * freq
-    r = np.absolute(9 / 20 / (1 + (3 * x / 4) ** 2) * ((16 * x**2 * np.sin(x) ** 2)))
+    r = np.absolute(9 
+                    / 20 
+                    / (1 + (3 * x / 4) ** 2)
+                    * ((16 * x**2 * np.sin(x) ** 2))
+                    )
     if tdi2:
         r *= 4 * np.sin(2 * x) ** 2
     return r / 1.5 / 2
