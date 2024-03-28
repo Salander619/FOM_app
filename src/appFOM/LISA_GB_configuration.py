@@ -10,7 +10,10 @@ from fastgb.fastgb import FastGB
 import lisaorbits
 import lisaconstants
 
-import utils
+try:
+    import utils
+except ImportError:
+    from . import utils
 
 class LISA_GB_source:
     """ Define a source for a galactic binary
@@ -121,7 +124,7 @@ if __name__ == "__main__":
 
 
     # verification GB reader
-    input_gb_filename = "src/appFOM/data/VGB.npy"
+    input_gb_filename = "src/appFOM/VGB.npy"
 
 
     gb_config_file = np.load(input_gb_filename)

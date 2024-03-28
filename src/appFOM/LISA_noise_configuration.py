@@ -214,7 +214,7 @@ class LISA_analytical_noise:
             return sgx
 
 
-    # pylint: disable=attribute
+    # pylint: disable=attribute-defined-outside-init
     def reset(self):
         """Reset the name, level and state of initialization
         """
