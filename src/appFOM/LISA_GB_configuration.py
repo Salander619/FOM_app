@@ -10,7 +10,7 @@ from fastgb.fastgb import FastGB
 import lisaorbits
 import lisaconstants
 
-from . import utils
+import utils
 
 class LISA_GB_source:
     """ Define a source for a galactic binary
@@ -27,6 +27,7 @@ class LISA_GB_source:
 
     def source_init(self,name_,params_):
         """ Init name, parameters and position of a source
+
         :param string name_: name of the source
         :param array params_: parameters of the source
         """
@@ -35,8 +36,10 @@ class LISA_GB_source:
         self.set_source_position(params_[3],params_[4])
         self.initialized = True
 
+    # pylint: disable=attribute-defined-outside-init
     def set_source_position(self,beta_,lambda_):
         """ Set the position of the source
+
         :param float beta_: 
         :param float lambda_:
         """
@@ -46,7 +49,7 @@ class LISA_GB_source:
     def get_name(self):
         """ Return name of the source
         """
-        if self.initialized is True : 
+        if self.initialized is True :
             return self.name
         else:
             return None
@@ -55,7 +58,7 @@ class LISA_GB_source:
         """ Return parameters of the source
         """
         if self.initialized is True:
-            return self.params.reshape(1,-1)          
+            return self.params.reshape(1,-1)      
         else:
             return None
 
@@ -75,7 +78,7 @@ class LISA_GB_source:
 
 
 
-
+    # pylint: disable=attribute-defined-outside-init
     def reset(self):
         """ Reset name, parameters and sources
         """
@@ -153,7 +156,7 @@ if __name__ == "__main__":
             source_tmp.get_source_parameters()[0][2]/(1e-23)
         )
         #source_tmp.display()
-        X, Y, Z, kmin = GB.get_fd_tdixyz(
+        X, _, _, kmin = GB.get_fd_tdixyz(
             source_tmp.get_source_parameters(),
             tdi2=True
         )

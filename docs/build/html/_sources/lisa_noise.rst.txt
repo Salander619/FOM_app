@@ -1,4 +1,11 @@
 LISA noise configuration
 ========================
 
-.. autofunction:: LISA_noise_configuration.instru_noise_psd
+.. automodule:: LISA_noise_configuration
+
+.. autoclass:: LISA_analytical_noise
+    :members:
+
+    .. method::
+
+    

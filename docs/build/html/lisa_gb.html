@@ -2,10 +2,12 @@
 <html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Utils" href="utils.html" /><link rel="prev" title="LISA noise configuration" href="lisa_noise.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 --><title>Index - FOM application 0.1 documentation</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>LISA GB configuration - FOM application 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
@@ -132,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -152,10 +154,10 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lisa_noise.html">LISA noise configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lisa_gb.html">LISA GB configuration</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">LISA GB configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
 </ul>
 
@@ -176,7 +178,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -184,203 +187,106 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          
-<section class="genindex-section">
-  <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#U"><strong>U</strong></a></div>
+          <section id="module-LISA_GB_configuration">
+<span id="lisa-gb-configuration"></span><h1>LISA GB configuration<a class="headerlink" href="#module-LISA_GB_configuration" title="Link to this heading">#</a></h1>
+<p>Manage galactic binaries sources</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">LISA_GB_configuration.</span></span><span class="sig-name descname"><span class="pre">LISA_GB_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source" title="Link to this definition">#</a></dt>
+<dd><p>Define a source for a galactic binary</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.display" title="Link to this definition">#</a></dt>
+<dd><p>Print name and parametrization of the source</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.get_name" title="Link to this definition">#</a></dt>
+<dd><p>Return name of the source</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.get_source_parameters">
+<span class="sig-name descname"><span class="pre">get_source_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.get_source_parameters" title="Link to this definition">#</a></dt>
+<dd><p>Return parameters of the source</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.get_source_position">
+<span class="sig-name descname"><span class="pre">get_source_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.get_source_position" title="Link to this definition">#</a></dt>
+<dd><p>Return position of the source</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.reset" title="Link to this definition">#</a></dt>
+<dd><p>Reset name, parameters and sources</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.set_source_position">
+<span class="sig-name descname"><span class="pre">set_source_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.set_source_position" title="Link to this definition">#</a></dt>
+<dd><p>Set the position of the source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>beta</strong> (<em>float</em>) – </p></li>
+<li><p><strong>lambda</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_GB_configuration.LISA_GB_source.source_init">
+<span class="sig-name descname"><span class="pre">source_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_GB_configuration.LISA_GB_source.source_init" title="Link to this definition">#</a></dt>
+<dd><p>Init name, parameters and position of a source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – name of the source</p></li>
+<li><p><strong>params</strong> (<em>array</em>) – parameters of the source</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="C" class="genindex-section">
-  <h2>C</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="utils.html#utils.compute_snr">compute_snr() (in module utils)</a>
-</li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd">confusion_noise_psd() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="D" class="genindex-section">
-  <h2>D</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.display">display() (LISA_GB_configuration.LISA_GB_source method)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="F" class="genindex-section">
-  <h2>F</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="utils.html#utils.fast_response">fast_response() (in module utils)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="G" class="genindex-section">
-  <h2>G</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.get_name">get_name() (LISA_GB_configuration.LISA_GB_source method)</a>
-</li>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.get_noise_level">get_noise_level() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.get_s_op">get_s_op() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.get_s_pm">get_s_pm() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.get_source_parameters">get_source_parameters() (LISA_GB_configuration.LISA_GB_source method)</a>
-</li>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.get_source_position">get_source_position() (LISA_GB_configuration.LISA_GB_source method)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="I" class="genindex-section">
-  <h2>I</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd">instru_noise_psd() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="L" class="genindex-section">
-  <h2>L</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise">LISA_analytical_noise (class in LISA_noise_configuration)</a>
-</li>
-        <li>
-    LISA_GB_configuration
-
-        <ul>
-          <li><a href="lisa_gb.html#module-LISA_GB_configuration">module</a>
-</li>
-        </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source">LISA_GB_source (class in LISA_GB_configuration)</a>
-</li>
-        <li>
-    LISA_noise_configuration
-
-        <ul>
-          <li><a href="lisa_noise.html#module-LISA_noise_configuration">module</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="M" class="genindex-section">
-  <h2>M</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    module
-
-        <ul>
-          <li><a href="lisa_gb.html#module-LISA_GB_configuration">LISA_GB_configuration</a>
-</li>
-          <li><a href="lisa_noise.html#module-LISA_noise_configuration">LISA_noise_configuration</a>
-</li>
-          <li><a href="utils.html#module-utils">utils</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="N" class="genindex-section">
-  <h2>N</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.noise_init">noise_init() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="P" class="genindex-section">
-  <h2>P</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="utils.html#utils.psd2sh">psd2sh() (in module utils)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="R" class="genindex-section">
-  <h2>R</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.reset">reset() (LISA_GB_configuration.LISA_GB_source method)</a>
-
-        <ul>
-          <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.reset">(LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="S" class="genindex-section">
-  <h2>S</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_noise.html#LISA_noise_configuration.LISA_analytical_noise.set_noise_level">set_noise_level() (LISA_noise_configuration.LISA_analytical_noise method)</a>
-</li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.set_source_position">set_source_position() (LISA_GB_configuration.LISA_GB_source method)</a>
-</li>
-        <li><a href="lisa_gb.html#LISA_GB_configuration.LISA_GB_source.source_init">source_init() (LISA_GB_configuration.LISA_GB_source method)</a>
-</li>
-    </ul></td>
-  </tr></table>
-</section>
-
-<section id="U" class="genindex-section">
-  <h2>U</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    utils
-
-        <ul>
-          <li><a href="utils.html#module-utils">module</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
-</section>
-
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="utils.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Utils</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="lisa_noise.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">LISA noise configuration</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -399,8 +305,36 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">LISA GB configuration</a><ul>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source</span></code></a><ul>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.display"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.display()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.get_name"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.get_name()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.get_source_parameters"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.get_source_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.get_source_position"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.get_source_position()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.reset"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.reset()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.set_source_position"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.set_source_position()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_GB_configuration.LISA_GB_source.source_init"><code class="docutils literal notranslate"><span class="pre">LISA_GB_source.source_init()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

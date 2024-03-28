@@ -26,3 +26,5 @@ Contents
 
    usage
    lisa_noise
+   lisa_gb
+   utils

@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -185,14 +185,125 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="lisa-noise-configuration">
-<h1>LISA noise configuration<a class="headerlink" href="#lisa-noise-configuration" title="Link to this heading">#</a></h1>
+          <section id="module-LISA_noise_configuration">
+<span id="lisa-noise-configuration"></span><h1>LISA noise configuration<a class="headerlink" href="#module-LISA_noise_configuration" title="Link to this heading">#</a></h1>
+<p>Compute instrumental and confusion noise</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">LISA_noise_configuration.</span></span><span class="sig-name descname"><span class="pre">LISA_analytical_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise" title="Link to this definition">#</a></dt>
+<dd><p>Compute noise according to a configuration called “name” and a noise level</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd">
+<span class="sig-name descname"><span class="pre">confusion_noise_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd" title="Link to this definition">#</a></dt>
+<dd><p>Return noise PSD from GB confusion noise, at given freq. range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>array</em>) – frequency range</p></li>
+<li><p><strong>nyears</strong> (<em>float</em>) – number of years of observation</p></li>
+<li><p><strong>option</strong> (<em>str</em>) – TDI name can be X, XY, A, E, T</p></li>
+<li><p><strong>tdi2</strong> (<em>bool</em>) – TDI1.5 or 2nd generation</p></li>
+<li><p><strong>arm_length</strong> (<em>float</em>) – arm length in meter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return array s_n<span class="colon">:</span></dt>
+<dd class="field-even"><p>noise PSD</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.get_noise_level">
+<span class="sig-name descname"><span class="pre">get_noise_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.get_noise_level" title="Link to this definition">#</a></dt>
+<dd><p>Return the noise level</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.get_s_op">
+<span class="sig-name descname"><span class="pre">get_s_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_op" title="Link to this definition">#</a></dt>
+<dd><p>Compute Optical Metrology Noise</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>array</em>) – frequency range</p></li>
+<li><p><strong>clight</strong> (<em>float</em>) – speed of light</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.get_s_pm">
+<span class="sig-name descname"><span class="pre">get_s_pm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_pm" title="Link to this definition">#</a></dt>
+<dd><p>Compute acceleration noise</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>array</em>) – frequency range</p></li>
+<li><p><strong>clight</strong> (<em>float</em>) – speed of light</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd">
+<span class="sig-name descname"><span class="pre">instru_noise_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd" title="Link to this definition">#</a></dt>
+<dd><p>Return noise PSD from acc and oms noise, at given freq. range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> (<em>array</em>) – frequency range</p></li>
+<li><p><strong>option</strong> (<em>str</em>) – TDI name can be X, XY, A, E, T</p></li>
+<li><p><strong>tdi2</strong> (<em>bool</em>) – TDI1.5 or 2nd generation</p></li>
+<li><p><strong>arm_length</strong> (<em>float</em>) – arm length in meter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return array s_n<span class="colon">:</span></dt>
+<dd class="field-even"><p>noise PSD</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.noise_init">
+<span class="sig-name descname"><span class="pre">noise_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.noise_init" title="Link to this definition">#</a></dt>
+<dd><p>Init noise configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – name of configuration</p></li>
+<li><p><strong>level</strong> (<em>int</em>) – noise level</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.reset" title="Link to this definition">#</a></dt>
+<dd><p>Reset the name, level and state of initialization</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.set_noise_level">
+<span class="sig-name descname"><span class="pre">set_noise_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.set_noise_level" title="Link to this definition">#</a></dt>
+<dd><p>Set the noise level</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>int</em>) – noise level</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -230,8 +341,37 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">LISA noise configuration</a><ul>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise</span></code></a><ul>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.confusion_noise_psd()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.get_noise_level"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_noise_level()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_op"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_s_op()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_pm"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_s_pm()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.instru_noise_psd()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.noise_init"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.noise_init()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.reset"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.reset()</span></code></a></li>
+<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.set_noise_level"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.set_noise_level()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

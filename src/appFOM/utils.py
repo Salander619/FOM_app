@@ -7,7 +7,7 @@ import lisaconstants
 import numpy as np
 from scipy.interpolate import InterpolatedUnivariateSpline as spline
 
-
+# pylint: disable=unused-variable
 
 def fast_response(freq, arm_length=2.5e9, tdi2=False):
     """Sky averaged response of the LISA constellation for TDI X.
@@ -17,10 +17,10 @@ def fast_response(freq, arm_length=2.5e9, tdi2=False):
     :param bool tdi2: TDI1.5 or 2nd generation
     :return array R: LISA TDI X response
     """
-    lisaLT = arm_length / lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
-    x = 2.0 * np.pi * lisaLT * freq
-    r = np.absolute(9 
-                    / 20 
+    lisa_lt = arm_length / lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
+    x = 2.0 * np.pi * lisa_lt * freq
+    r = np.absolute(9
+                    / 20
                     / (1 + (3 * x / 4) ** 2)
                     * ((16 * x**2 * np.sin(x) ** 2))
                     )
@@ -30,7 +30,7 @@ def fast_response(freq, arm_length=2.5e9, tdi2=False):
 
 
 
-def psd2sh(freq, SX, arm_length=2.5e9, tdi2=False, sky_averaging=False):
+def psd2sh(freq, sx, arm_length=2.5e9, tdi2=False, sky_averaging=False):
     """Return sensitivity curve from noise psd.
 
     :param array freq: frequency range
@@ -51,34 +51,34 @@ def psd2sh(freq, SX, arm_length=2.5e9, tdi2=False, sky_averaging=False):
         fctr = (4.0 * np.sin(2.0 * np.pi * freq * lisa_arm_t)) ** 2
 
     f_star = 2.0 * np.pi * lisa_arm_t * freq
-    R = 1.0 / (1.0 + 0.6 * (f_star) ** 2)
-    fctr = fctr * (2.0 * np.pi * freq * lisa_arm_t) ** 2 * R
+    r = 1.0 / (1.0 + 0.6 * (f_star) ** 2)
+    fctr = fctr * (2.0 * np.pi * freq * lisa_arm_t) ** 2 * r
     if sky_averaging:
         fctr *= 3 / 20.0
-    Sh = spline(freq, SX / fctr)
-    return Sh
+    sh = spline(freq, sx / fctr)
+    return sh
 
 
 # pylint: disable=undefined-variable
-def compute_snr(XYZ_, SXX_, SXY_):
-    """SNR from TDI XYZ
+def compute_snr(xyz_, sxx_, sxy_):
+    """SNR from TDI xyz_
 
-    :param 3xN array XYZ: signal TDI X,Y,Z
-    :param 1xN array SXX: noise PSD auto term
-    :param 1xN array SXY: noise PSD cross term
+    :param 3xN array xyz_: signal TDI X,Y,Z
+    :param 1xN array sxx_: noise PSD auto term
+    :param 1xN array sxy_: noise PSD cross term
     :return float snr: total snr from X,Y,Z combination.
     """
-    Efact = SXX * SXX + SXX * SXY - 2 * SXY * SXY
-    Efact[Efact == 0] = np.inf
-    Efact = 1 / Efact
-    EXX = (SXX + SXY) * Efact
-    EXY = -SXY * Efact
+    efact = sxx_ * sxx_ + sxx_ * sxy_ - 2 * sxy_ * sxy_
+    efact[efact == 0] = np.inf
+    efact = 1 / efact
+    exx = (sxx_ + sxy_) * efact
+    exy = -sxy_ * efact
 
     snr = 0
     for k in range(3):
-        snr += np.sum(np.real(XYZ[k] * np.conj(XYZ[k]) * EXX))
+        snr += np.sum(np.real(xyz_[k] * np.conj(xyz_[k]) * exx))
     for k1, k2 in [(0, 1), (0, 2), (1, 2)]:
-        snr += np.sum(np.real(XYZ[k1] * np.conj(XYZ[k2]) * EXY))
-        snr += np.sum(np.real(XYZ[k2] * np.conj(XYZ[k1]) * EXY))
+        snr += np.sum(np.real(xyz_[k1] * np.conj(xyz_[k2]) * exy))
+        snr += np.sum(np.real(xyz_[k2] * np.conj(xyz_[k1]) * exy))
     snr *= 4.0 * df
     return np.sqrt(snr)

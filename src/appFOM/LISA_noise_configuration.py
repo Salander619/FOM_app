@@ -22,7 +22,8 @@ class LISA_analytical_noise:
         return display
 
     def noise_init(self,name_,level_):
-        """ Init noise configuration
+        """ Init noise configuration 
+
         :param string name_: name of configuration 
         :param int level_: noise level
         """
@@ -38,6 +39,7 @@ class LISA_analytical_noise:
 
     def set_noise_level(self,level_):
         """ Set the noise level
+
         :param int level_: noise level
         """
         self.level = level_
@@ -71,8 +73,10 @@ class LISA_analytical_noise:
 
     def get_s_op(self, freq_, clight):
         """ Compute Optical Metrology Noise
+
         :param array freq_: frequency range
         :param float clight: speed of light
+        :return float s_op: oms noise
         """
         s_op = (
             self._compute_oms()
@@ -83,8 +87,10 @@ class LISA_analytical_noise:
 
     def get_s_pm(self, freq_, clight):
         """ Compute acceleration noise
+
         :param array freq_: frequency range
         :param float clight: speed of light
+        :return float s_pm: acceleration noise
         """
         sa_d = self._compute_acc(freq_) *\
               (2.0 * np.pi * freq_) ** (-4.0) # in displacement
@@ -98,6 +104,7 @@ class LISA_analytical_noise:
                          arm_length_=2.5e9
                         ):
         """Return noise PSD from acc and oms noise, at given freq. range.
+
         :param array freq: frequency range
         :param str option: TDI name can be X, XY, A, E, T
         :param bool tdi2: TDI1.5 or 2nd generation
@@ -162,6 +169,7 @@ class LISA_analytical_noise:
                             arm_length_=2.5e9
                             ):
         """Return noise PSD from GB confusion noise, at given freq. range.
+
         :param array freq: frequency range
         :param float nyears: number of years of observation
         :param str option: TDI name can be X, XY, A, E, T
@@ -170,8 +178,8 @@ class LISA_analytical_noise:
         :return array s_n: noise PSD
         """
         clight = lisaconstants.SPEED_OF_LIGHT # pylint: disable=no-member
-        lisaLT = arm_length_ / clight
-        x = 2.0 * np.pi * lisaLT * freq_
+        lisa_lt = arm_length_ / clight
+        x = 2.0 * np.pi * lisa_lt * freq_
         t = 4.0 * x**2 * np.sin(x) ** 2
 
         # confusion noise model for snr>7
@@ -206,10 +214,9 @@ class LISA_analytical_noise:
             return sgx
 
 
-
+    # pylint: disable=attribute
     def reset(self):
-        """
-        Reset the name, level and state of initialization
+        """Reset the name, level and state of initialization
         """
         self.name  = None
         self.level = None
