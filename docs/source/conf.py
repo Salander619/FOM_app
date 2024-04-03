@@ -9,9 +9,6 @@ import sys
 import os
 sys.path.insert(1,os.path.abspath("/home/badet/Documents/GitHub/appFOM/src/appFOM"))
 
-import LISA_GB_configuration
-import LISA_noise_configuration
-
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
