@@ -9,12 +9,12 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
-    - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser
         pip install furo
+    - name: Build HTML
+      uses: ammaraskar/sphinx-action@master
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
