@@ -12,8 +12,6 @@ To use appFOM, first install it using pip:
 
    (.venv) $ pip install git+https://github.com/Salander619/appFOM.git
 
-.. _utilisation:
-
 Utilisation
 -----------
 
