@@ -16,4 +16,4 @@ Utilisation
 -----------
 
 This package have been developped in order to be used by the application FOM (https://appapp-oh2r8mbnt58dfttv2vnchz.streamlit.app/).
-However, it is possible to test the module :doc:`LISA_noise_configuration` and :doc:`LISA_GB_configuration` by running them with python.
+However, it is possible to test the module :doc:`lisa_noise` and :doc:`lisa_gb` by running them with python.
