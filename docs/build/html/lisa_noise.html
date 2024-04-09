@@ -195,14 +195,14 @@
         <article role="main">
           <section id="lisa-noise-configuration">
 <h1>LISA noise configuration<a class="headerlink" href="#lisa-noise-configuration" title="Link to this heading">#</a></h1>
-<p id="module-LISA_noise_configuration"><span id="id1"></span>Compute instrumental and confusion noise</p>
+<p id="module-appFOM.LISA_noise_configuration"><span id="id1"></span>Compute instrumental and confusion noise</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">LISA_noise_configuration.</span></span><span class="sig-name descname"><span class="pre">LISA_analytical_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">appFOM.LISA_noise_configuration.</span></span><span class="sig-name descname"><span class="pre">LISA_analytical_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise" title="Link to this definition">#</a></dt>
 <dd><p>Compute noise according to a configuration called “name” and a noise level</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd">
-<span class="sig-name descname"><span class="pre">confusion_noise_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd">
+<span class="sig-name descname"><span class="pre">confusion_noise_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd" title="Link to this definition">#</a></dt>
 <dd><p>Return noise PSD from GB confusion noise, at given freq. range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -221,14 +221,14 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.get_noise_level">
-<span class="sig-name descname"><span class="pre">get_noise_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.get_noise_level" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.get_noise_level">
+<span class="sig-name descname"><span class="pre">get_noise_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.get_noise_level" title="Link to this definition">#</a></dt>
 <dd><p>Return the noise level</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.get_s_op">
-<span class="sig-name descname"><span class="pre">get_s_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_op" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.get_s_op">
+<span class="sig-name descname"><span class="pre">get_s_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.get_s_op" title="Link to this definition">#</a></dt>
 <dd><p>Compute Optical Metrology Noise</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -244,8 +244,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.get_s_pm">
-<span class="sig-name descname"><span class="pre">get_s_pm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_pm" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.get_s_pm">
+<span class="sig-name descname"><span class="pre">get_s_pm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.get_s_pm" title="Link to this definition">#</a></dt>
 <dd><p>Compute acceleration noise</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -261,8 +261,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd">
-<span class="sig-name descname"><span class="pre">instru_noise_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd">
+<span class="sig-name descname"><span class="pre">instru_noise_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd" title="Link to this definition">#</a></dt>
 <dd><p>Return noise PSD from acc and oms noise, at given freq. range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -280,8 +280,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.noise_init">
-<span class="sig-name descname"><span class="pre">noise_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.noise_init" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.noise_init">
+<span class="sig-name descname"><span class="pre">noise_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.noise_init" title="Link to this definition">#</a></dt>
 <dd><p>Init noise configuration</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -294,14 +294,14 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.reset" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.reset" title="Link to this definition">#</a></dt>
 <dd><p>Reset the name, level and state of initialization</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="LISA_noise_configuration.LISA_analytical_noise.set_noise_level">
-<span class="sig-name descname"><span class="pre">set_noise_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LISA_noise_configuration.LISA_analytical_noise.set_noise_level" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.LISA_noise_configuration.LISA_analytical_noise.set_noise_level">
+<span class="sig-name descname"><span class="pre">set_noise_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.set_noise_level" title="Link to this definition">#</a></dt>
 <dd><p>Set the noise level</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -370,15 +370,15 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">LISA noise configuration</a><ul>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise</span></code></a><ul>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.confusion_noise_psd()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.get_noise_level"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_noise_level()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_op"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_s_op()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.get_s_pm"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_s_pm()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.instru_noise_psd()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.noise_init"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.noise_init()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.reset"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.reset()</span></code></a></li>
-<li><a class="reference internal" href="#LISA_noise_configuration.LISA_analytical_noise.set_noise_level"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.set_noise_level()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise</span></code></a><ul>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.confusion_noise_psd"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.confusion_noise_psd()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.get_noise_level"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_noise_level()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.get_s_op"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_s_op()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.get_s_pm"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.get_s_pm()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.instru_noise_psd"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.instru_noise_psd()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.noise_init"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.noise_init()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.reset"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.reset()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.LISA_noise_configuration.LISA_analytical_noise.set_noise_level"><code class="docutils literal notranslate"><span class="pre">LISA_analytical_noise.set_noise_level()</span></code></a></li>
 </ul>
 </li>
 </ul>

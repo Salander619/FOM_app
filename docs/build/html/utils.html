@@ -193,12 +193,12 @@
           </label>
         </div>
         <article role="main">
-          <section id="module-utils">
-<span id="utils"></span><h1>Utils<a class="headerlink" href="#module-utils" title="Link to this heading">#</a></h1>
+          <section id="module-appFOM.utils">
+<span id="utils"></span><h1>Utils<a class="headerlink" href="#module-appFOM.utils" title="Link to this heading">#</a></h1>
 <p>Contains general methods used by the application</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="utils.fast_response">
-<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">fast_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.fast_response" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.utils.fast_response">
+<span class="sig-prename descclassname"><span class="pre">appFOM.utils.</span></span><span class="sig-name descname"><span class="pre">fast_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.utils.fast_response" title="Link to this definition">#</a></dt>
 <dd><p>Sky averaged response of the LISA constellation for TDI X.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -215,8 +215,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="utils.psd2sh">
-<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">psd2sh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sky_averaging</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.psd2sh" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.utils.psd2sh">
+<span class="sig-prename descclassname"><span class="pre">appFOM.utils.</span></span><span class="sig-name descname"><span class="pre">psd2sh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arm_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2500000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdi2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sky_averaging</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.utils.psd2sh" title="Link to this definition">#</a></dt>
 <dd><p>Return sensitivity curve from noise psd.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -235,8 +235,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="utils.compute_snr">
-<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">compute_snr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sxx_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sxy_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.compute_snr" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="appFOM.utils.compute_snr">
+<span class="sig-prename descclassname"><span class="pre">appFOM.utils.</span></span><span class="sig-name descname"><span class="pre">compute_snr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sxx_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sxy_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appFOM.utils.compute_snr" title="Link to this definition">#</a></dt>
 <dd><p>SNR from TDI <a href="#id1"><span class="problematic" id="id2">xyz_</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -302,9 +302,9 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Utils</a><ul>
-<li><a class="reference internal" href="#utils.fast_response"><code class="docutils literal notranslate"><span class="pre">fast_response()</span></code></a></li>
-<li><a class="reference internal" href="#utils.psd2sh"><code class="docutils literal notranslate"><span class="pre">psd2sh()</span></code></a></li>
-<li><a class="reference internal" href="#utils.compute_snr"><code class="docutils literal notranslate"><span class="pre">compute_snr()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.utils.fast_response"><code class="docutils literal notranslate"><span class="pre">fast_response()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.utils.psd2sh"><code class="docutils literal notranslate"><span class="pre">psd2sh()</span></code></a></li>
+<li><a class="reference internal" href="#appFOM.utils.compute_snr"><code class="docutils literal notranslate"><span class="pre">compute_snr()</span></code></a></li>
 </ul>
 </li>
 </ul>
