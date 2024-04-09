@@ -1,1 +1,2 @@
 furo
+appFOM @ git+https://github.com/Salander619/appFOM.git
