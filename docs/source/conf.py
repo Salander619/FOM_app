@@ -6,7 +6,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import sys, os
-sys.path.append(os.path.abspath('../src/appFOM'))
+sys.path.append(os.path.abspath('../src/appFOM/utils.py'))
+sys.path.append(os.path.abspath('../src/appFOM/LISA_GB_configuration.py'))
+sys.path.append(os.path.abspath('../src/appFOM/LISA_noise_configuration.py'))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
