@@ -12,7 +12,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
-        sudo apt-get install git-all
+        sudo apt-get install git
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
