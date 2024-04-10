@@ -1,1 +1,6 @@
 furo
+numpy
+lisaconstants
+matplotlib
+scipy
+lisaorbits
