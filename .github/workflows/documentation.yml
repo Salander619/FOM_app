@@ -13,6 +13,7 @@ jobs:
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
         sudo apt-get install git
+        git --version
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
