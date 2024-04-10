@@ -1,7 +1,1 @@
 furo
-numpy
-lisaconstants
-matplotlib
-scipy
-lisaorbits
-fastgb @ git+https://gitlab.in2p3.fr/LISA/fastgb.git@8b243fa56cc91b8911f58c0883db40dff4788db2
