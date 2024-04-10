@@ -4,3 +4,4 @@ lisaconstants
 matplotlib
 scipy
 lisaorbits
+fastgb
