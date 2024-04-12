@@ -12,14 +12,11 @@ jobs:
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
-        pip install numpy lisaconstants matplotlib scipy lisaorbits
-        sudo apt-get install git
-        git --version
-        pip install git+https://gitlab.in2p3.fr/LISA/fastgb.git@8b243fa56cc91b8911f58c0883db40dff4788db2
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs"
+        pre-build-command: "apt-get install git"
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
