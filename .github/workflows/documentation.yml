@@ -12,9 +12,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
+        apt-get update -y && apt-get install -y sudo && sudo apt-get install -y git && git --version
     - name: Build HTML
       with:
-        pre-build-command: "apt-get update -y && apt-get install -y sudo && sudo apt-get install -y git && git --version"
         docs-folder: "docs"
       uses: ammaraskar/sphinx-action@master
     - name: Upload artifacts
