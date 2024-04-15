@@ -12,7 +12,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
-        apt-get update -y && apt-get install -y sudo && sudo apt-get install -y git && git --version
+        apt-get update -y && sudo apt-get install -y git && git --version
     - name: Build HTML
       with:
         docs-folder: "docs"
