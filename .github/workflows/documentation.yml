@@ -14,7 +14,7 @@ jobs:
         pip install sphinx sphinx_rtd_theme myst_parser furo
     - name: Build HTML
       with:
-        pre-build-command: "sudo apt-get update -y && sudo apt-get install -y git && git --version"
+        pre-build-command: "apt-get update -y && apt install sudo && sudo apt-get install -y git && git --version"
         docs-folder: "docs"
       uses: ammaraskar/sphinx-action@master
     - name: Upload artifacts
