@@ -9,13 +9,16 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
+    - name: Install git
+      run: |
         sudo apt-get update -y 
         sudo apt-get install -y git 
         git --version
-        pip install -r requirements.txt
     - name: Build HTML
       with:
         docs-folder: "docs"
