@@ -15,7 +15,7 @@ jobs:
         sudo apt-get update -y 
         sudo apt-get install -y git 
         git --version
-        python -m pip install -r requirements.txt
+        pip install -r requirements.txt
     - name: Build HTML
       with:
         docs-folder: "docs"
