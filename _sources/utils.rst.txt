@@ -1,7 +1,7 @@
 Utils
 =====
 
-.. automodule:: utils
+.. automodule:: appFOM.utils
 
     .. autofunction:: fast_response
 
