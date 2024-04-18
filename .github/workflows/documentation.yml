@@ -9,14 +9,16 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
-    - name: Install dependencies
-      run: |
-        pip install sphinx sphinx_rtd_theme myst_parser furo
     - name: Install git
       run: |
         sudo apt-get update -y 
         sudo apt-get install -y git 
         git --version
+    - name: Install dependencies
+      run: |
+        pip install sphinx sphinx_rtd_theme myst_parser 
+        pip install furo numpy lisaconstants matplotlib scipy lisaorbits 
+        pip install git+https://gitlab.in2p3.fr/LISA/fastgb.git@8b243fa56cc91b8911f58c0883db40dff4788db2
     - name: Build HTML
       with:
         docs-folder: "docs"
