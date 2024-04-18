@@ -20,9 +20,8 @@ jobs:
         pip install furo numpy lisaconstants matplotlib scipy lisaorbits 
         pip install git+https://gitlab.in2p3.fr/LISA/fastgb.git@8b243fa56cc91b8911f58c0883db40dff4788db2
     - name: Build HTML
-      with:
-        docs-folder: "docs"
-      uses: ammaraskar/sphinx-action@master
+      run: |
+        sphinx-build doc _build
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
