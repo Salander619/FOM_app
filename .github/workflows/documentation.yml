@@ -9,8 +9,6 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
-      with:
-        persist-credentials: false
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser furo
