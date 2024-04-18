@@ -18,7 +18,7 @@ jobs:
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser 
         pip install furo numpy lisaconstants matplotlib scipy lisaorbits 
-        pip install fastgb @ git+https://gitlab.in2p3.fr/LISA/fastgb.git@8b243fa56cc91b8911f58c0883db40dff4788db2
+        pip install fastgb git+https://gitlab.in2p3.fr/LISA/fastgb.git@8b243fa56cc91b8911f58c0883db40dff4788db2
         pip list
     - name: Build HTML
       run: |
