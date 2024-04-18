@@ -17,8 +17,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install sphinx sphinx_rtd_theme myst_parser 
-        cd docs
-        pip install -r requirements.txt
     - name: Build HTML
       run: |
         cd docs
